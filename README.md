@@ -45,9 +45,7 @@ class Garden
   end
 
   def plants
-    Plant.all.select do |plant|
-      plant.garden == self
-    end
+    Plant.all.select { |plant| plant.garden == self }
   end
 end
 
@@ -66,12 +64,12 @@ class Plant
   end
 end
 
-lawn = Garden.new(name: 'Front Lawn') # we can call Garden.new because Garden is defined above
+lawn = Garden.new(name: "Front Lawn") # we can call Garden.new because Garden is defined above
 
-basil = Plant.new(name: 'Basil') # we can call Plant.new because Plant is defined above
+basil = Plant.new(name: "Basil") # we can call Plant.new because Plant is defined above
 basil.garden = lawn
 
-cucumber = Plant.new(name: 'Cucumber')
+cucumber = Plant.new(name: "Cucumber")
 cucumber.garden = lawn # we can associate a plant and a garden because both are defined above
 
 p lawn.plants
@@ -109,12 +107,12 @@ example is written:
 ```ruby
 # lib/garden.rb
 
-lawn = Garden.new(name: 'Front Lawn')
+lawn = Garden.new(name: "Front Lawn")
 
-basil = Plant.new(name: 'Basil')
+basil = Plant.new(name: "Basil")
 basil.garden = lawn
 
-cucumber = Plant.new(name: 'Cucumber')
+cucumber = Plant.new(name: "Cucumber")
 cucumber.garden = lawn
 
 p lawn.plants
@@ -149,7 +147,7 @@ file in which the `require_relative` statement is called.
 [require_relative]: https://ruby-doc.org/core-2.7.3/Kernel.html#method-i-require_relative
 
 ```ruby
-require_relative '../lib/ruby_file.rb'
+require_relative "../lib/ruby_file.rb"
 ```
 
 In the example above, `..` would mean that inside the _parent folder_ of the
@@ -177,7 +175,7 @@ We don't often require files using their absolute path, but we will frequently
 require libraries using a shortened name. You have already seen this:
 
 ```ruby
-require 'pry'
+require "pry"
 ```
 
 Pry is a Ruby gem, a bundle of preexisting code that we can install on our
@@ -201,7 +199,7 @@ of `lib/garden.rb` and `lib/plant.rb`. At the top of `lib/garden.rb`, add the
 following line:
 
 ```ruby
-require_relative './plant'
+require_relative "./plant"
 ```
 
 Here, we're indicating to Ruby that there is a file, `plant.rb` located in the
